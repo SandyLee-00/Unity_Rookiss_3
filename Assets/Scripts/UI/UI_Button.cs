@@ -22,6 +22,8 @@ public class UI_Button : MonoBehaviour
     {
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
+
+        
     }
 
     void Bind<T>(Type type) where T : UnityEngine.Object
@@ -36,12 +38,20 @@ public class UI_Button : MonoBehaviour
         }
     }
 
-    
+    T Get<T>(int idx) where T : UnityEngine.Object
+    {
+        UnityEngine.Object[] objects = null;
+        if (_objects.TryGetValue(typeof(T), out objects) == false)
+            return null;
+        return objects[idx] as T;
+    }
+
+
 
     int _score = 0;
     public void OnButtonClicked()
     {
         _score++;
-        //_text.text = $"Á¡¼ö : {_score}";
+        //_text.text = $"???? : {_score}";
     }
 }
