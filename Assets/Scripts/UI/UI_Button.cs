@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Collections.Specialized.BitVector32;
 
 public class UI_Button : UI_Base
 {
@@ -34,20 +35,19 @@ public class UI_Button : UI_Base
         Bind<GameObject>(typeof(GameObjects));
         Bind<Image>(typeof(Images));
 
-        Get<Text>((int)Texts.ScoreText).text = "BindTest";
+        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
 
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
-
     }
 
     
 
     int _score = 0;
-    public void OnButtonClicked()
+    public void OnButtonClicked(PointerEventData data)
     {
         _score++;
-        //_text.text = $"???? : {_score}";
+        Get<Text>((int)Texts.ScoreText).text = $"{_score}";
     }
 }
