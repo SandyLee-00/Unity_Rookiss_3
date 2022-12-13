@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static System.Collections.Specialized.BitVector32;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Popup
 {
     enum Buttons
     {
