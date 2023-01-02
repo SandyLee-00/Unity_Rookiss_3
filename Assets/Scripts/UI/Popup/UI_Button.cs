@@ -54,4 +54,5 @@ public class UI_Button : UI_Popup
         _score++;
         Get<Text>((int)Texts.ScoreText).text = $"{_score}";
     }
+
 }

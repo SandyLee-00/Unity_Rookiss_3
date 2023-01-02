@@ -28,7 +28,6 @@ public class Managers : MonoBehaviour
     {
         _input.OnUpdate();
     }
-
     static void Init()
     {
         if(s_instance == null)
@@ -41,6 +40,8 @@ public class Managers : MonoBehaviour
             }
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._sound.Init();
         }
         
     }
