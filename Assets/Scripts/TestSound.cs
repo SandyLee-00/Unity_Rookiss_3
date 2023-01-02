@@ -13,10 +13,14 @@ public class TestSound : MonoBehaviour
     void Update()
     {
     }
+    int i = 0;
 
     private void OnTriggerEnter(Collider other) {
-        Managers.Sound.Play(Define.Sound.Effect, "UnityChan/univ0001");
-        Managers.Sound.Play(Define.Sound.Effect, "UnityChan/univ0002");
+        i++;
+        if(i % 2 == 0)
+            Managers.Sound.Play("UnityChan/univ0001", Define.Sound.Bgm);
+        else
+            Managers.Sound.Play("UnityChan/univ0002", Define.Sound.Bgm);
 
     }
 }
