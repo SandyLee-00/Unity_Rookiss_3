@@ -6,6 +6,18 @@ public class ResourceManager
 {
   public T Load<T>(string path) where T : Object
   {
+    if (typeof(T) == typeof(GameObject))
+    {
+      string name = path;
+      int index = name.LastIndexOf('/');
+      if (index >= 0)
+        name = name.Substring(index + 1);
+
+      GameObject go = Managers.Pool.GetOriginal(name);
+      if (go != null)
+        return go as T;
+    }
+
     return Resources.Load<T>(path);
   }
 

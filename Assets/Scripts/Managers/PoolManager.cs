@@ -72,13 +72,17 @@ public class PoolManager
 
     _pool.Add(orginal.name, pool);
   }
-  // public void Push(Poolable poolable)
-  // {
-  //   string name = poolable.gameObject.name;
-  //   if 
+  public void Push(Poolable poolable)
+  {
+    string name = poolable.gameObject.name;
+    if (_pool.ContainsKey(name) == false)
+    {
+      GameObject.Destroy(poolable.gameObject);
+      return;
+    }
 
-  //   _pool[name].Push(poolable);
-  // }
+    _pool[name].Push(poolable);
+  }
 
   public Poolable Pop(GameObject original, Transform parent = null)
   {
@@ -94,5 +98,13 @@ public class PoolManager
       return null;
 
     return _pool[name].Origianl;
+  }
+  public void Clear()
+  {
+    foreach (Transform child in _root)
+    {
+      GameObject.Destroy(child.gameObject);
+    }
+    _pool.Clear();
   }
 }
