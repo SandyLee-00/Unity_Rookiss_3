@@ -15,7 +15,7 @@ public class PoolManager
     {
       Origianl = orginal;
       Root = new GameObject().transform;
-      Root.name = "${orginal.name}_Root";
+      Root.name = $"{orginal.name}_Root";
 
       for (int i = 0; i < count; i++)
         Push(Create());
@@ -46,6 +46,10 @@ public class PoolManager
         poolable = Create();
 
       poolable.gameObject.SetActive(true);
+
+      if (parent == null)
+        poolable.transform.parent = Managers.Scene.CurrentScene.transform;
+
       poolable.transform.parent = parent;
       poolable.IsUsing = true;
 
@@ -59,7 +63,7 @@ public class PoolManager
   {
     if (_root == null)
     {
-      _root = new GameObject { name = "Pool_Root" }.transform;
+      _root = new GameObject { name = "@Pool_Root" }.transform;
       Object.DontDestroyOnLoad(_root);
     }
   }
