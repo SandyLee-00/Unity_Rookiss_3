@@ -11,11 +11,7 @@ public class GameScene : BaseScene
 
     Managers.UI.ShowSceneUI<UI_Inven>();
 
-    //test
-    for (int i = 0; i < 1; i++)
-      Managers.Resource.Instantiate("UnityChan");
   }
-
   public override void Clear()
   {
 
