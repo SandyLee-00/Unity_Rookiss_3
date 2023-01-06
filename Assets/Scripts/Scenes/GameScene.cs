@@ -11,6 +11,8 @@ public class GameScene : BaseScene
 
     Managers.UI.ShowSceneUI<UI_Inven>();
 
+    Dictionary<int, Stat> dict = Managers.Data.StatDict;
+
   }
   public override void Clear()
   {
