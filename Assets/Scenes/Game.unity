@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: ca469536a516c3e499a0682f73cb2c57, type: 2}
 --- !u!1001 &7792488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ PrefabInstance:
     - target: {fileID: 111684879331651757, guid: 4d3c4a9b34cc1bd43ac9676b67e0538f, type: 3}
       propertyPath: _player
       value: 
-      objectReference: {fileID: 7819427748963905846, guid: c1a84ccee93820840a541202e20c0bc1, type: 3}
+      objectReference: {fileID: 2102854953}
     - target: {fileID: 111684879331651757, guid: 4d3c4a9b34cc1bd43ac9676b67e0538f, type: 3}
       propertyPath: _delta.y
       value: 10
@@ -12655,6 +12655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 471c1eb32c770a54ea8a1c3ffbda1de6, type: 3}
+--- !u!1 &2102854953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7819427748963905846, guid: c1a84ccee93820840a541202e20c0bc1, type: 3}
+  m_PrefabInstance: {fileID: 1016819060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2111967275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409632, guid: 471c1eb32c770a54ea8a1c3ffbda1de6, type: 3}
