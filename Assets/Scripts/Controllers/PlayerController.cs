@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     Idle,
     Moving,
     Die,
+    Skill,
   }
   PlayerState _state = PlayerState.Idle;
 
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
     }
   }
 
+  int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
   void OnMouseClicked(Define.MouseEvent evt)
   {
     if (_state == PlayerState.Die)
@@ -89,10 +91,19 @@ public class PlayerController : MonoBehaviour
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
     RaycastHit hit;
-    if (Physics.Raycast(ray, out hit, 100.0f, LayerMask.GetMask("Wall")))
+    if (Physics.Raycast(ray, out hit, 100.0f, _mask))
     {
       _destPos = hit.point;
       _state = PlayerState.Moving;
+
+      if (hit.collider.gameObject.layer == (int)Define.Layer.Monster)
+      {
+
+      }
+      else
+      {
+
+      }
     }
   }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3616072277524686129}
   - component: {fileID: 3616072277514898103}
   - component: {fileID: 4313110033742804526}
+  - component: {fileID: 2165463734849460686}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -72,7 +73,21 @@ MonoBehaviour:
   _maxHp: 0
   _attack: 0
   _defense: 0
-  _speed: 0
+  _moveSpeed: 0
+--- !u!136 &2165463734849460686
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616072277524265169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!1 &3616072277524265171
 GameObject:
   m_ObjectHideFlags: 0
