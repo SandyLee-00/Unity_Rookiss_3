@@ -5,12 +5,11 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-  [SerializeField]
-  float _speed = 10.0f;
-
+  PlayerStat _stat;
   Vector3 _destPos;
   void Start()
   {
+    _stat = gameObject.GetComponent<PlayerStat>();
     Managers.Input.MouseAction -= OnMouseClicked;
     Managers.Input.MouseAction += OnMouseClicked;
 
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
     else
     {
       NavMeshAgent nma = gameObject.GetOrAddComponet<NavMeshAgent>();
-      float moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0, dir.magnitude);
+      float moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
       nma.Move(dir.normalized * moveDist);
 
       if (Physics.Raycast(transform.position + Vector3.up * 0.5f, dir, 1.0f, LayerMask.GetMask("Block")))
