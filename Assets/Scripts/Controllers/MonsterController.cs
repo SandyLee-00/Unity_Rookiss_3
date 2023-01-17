@@ -76,18 +76,17 @@ public class MonsterController : BaseController
     if (_lockTarget != null)
     {
       Stat targetStat = _lockTarget.GetComponent<Stat>();
-      Stat myStat = gameObject.GetComponent<Stat>();
-      int damage = Mathf.Max(0, myStat.Attack - targetStat.Defense);
+      int damage = Mathf.Max(0, _stat.Attack - targetStat.Defense);
       targetStat.HP -= damage;
 
-      if (targetStat.HP >= 0)
+      if (targetStat.HP > 0)
       {
         float distance = (_lockTarget.transform.position - transform.position).magnitude;
         if (distance <= _attackRange) State = Define.State.Skill;
         else State = Define.State.Idle;
 
       }
-      else
+      else if (targetStat.HP <= 0)
       {
         State = Define.State.Idle;
       }
