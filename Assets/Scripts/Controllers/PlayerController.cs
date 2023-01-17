@@ -12,11 +12,12 @@ public class PlayerController : BaseController
 
   public override void Init()
   {
-    base.Init();
     _stat = gameObject.GetComponent<PlayerStat>();
     Managers.Input.MouseAction -= OnMouseEvent;
     Managers.Input.MouseAction += OnMouseEvent;
-    Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
+
+    if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
+      Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
   }
   protected override void UpdateMoving()
   {
@@ -40,10 +41,6 @@ public class PlayerController : BaseController
     }
     else
     {
-      NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
-      float moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
-      nma.Move(dir.normalized * moveDist);
-
       Debug.DrawRay(transform.position + Vector3.up * 0.5f, dir.normalized, Color.green);
       if (Physics.Raycast(transform.position + Vector3.up * 0.5f, dir, 1.0f, LayerMask.GetMask("Block")))
       {
@@ -51,7 +48,8 @@ public class PlayerController : BaseController
           State = Define.State.Idle;
         return;
       }
-
+      float moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
+      transform.position += dir.normalized * moveDist;
       transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
     }
   }

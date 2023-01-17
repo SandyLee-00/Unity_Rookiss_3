@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseController : MonoBehaviour
+public abstract class BaseController : MonoBehaviour
 {
   [SerializeField]
   protected Vector3 _destPos;
@@ -65,4 +65,6 @@ public class BaseController : MonoBehaviour
   protected virtual void UpdateMoving() { }
   protected virtual void UpdateIdle() { }
   protected virtual void UpdateSkill() { }
+
+  void OnHitEvent() { }
 }
