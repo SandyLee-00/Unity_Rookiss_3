@@ -89,7 +89,7 @@ public class MonsterController : BaseController
       }
       else if (targetStat.HP <= 0)
       {
-        State = Define.State.Idle;
+        Managers.Game.Despawn(targetStat.gameObject);
       }
     }
     else
