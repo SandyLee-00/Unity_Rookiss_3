@@ -21,7 +21,7 @@ public class MonsterController : BaseController
   }
   protected override void UpdateIdle()
   {
-    GameObject player = GameObject.FindGameObjectWithTag("Player");
+    GameObject player = Managers.Game.GetPlayer();
     if (player == null) return;
 
     float distance = (player.transform.position - transform.position).magnitude;
@@ -77,8 +77,7 @@ public class MonsterController : BaseController
     if (_lockTarget != null)
     {
       Stat targetStat = _lockTarget.GetComponent<Stat>();
-      int damage = Mathf.Max(0, _stat.Attack - targetStat.Defense);
-      targetStat.HP -= damage;
+      targetStat.OnAttacked(_stat);
 
       if (targetStat.HP > 0)
       {
