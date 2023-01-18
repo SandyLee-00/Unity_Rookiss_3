@@ -10,8 +10,9 @@ namespace Data
   public class Stat
   {
     public int level;
-    public int hp;
+    public int maxhp;
     public int attack;
+    public int totalExp;
   }
 
   [Serializable]
