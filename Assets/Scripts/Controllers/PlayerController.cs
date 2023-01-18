@@ -12,6 +12,7 @@ public class PlayerController : BaseController
 
   public override void Init()
   {
+    WorldObjectType = Define.WorldObject.Player;
     _stat = gameObject.GetComponent<PlayerStat>();
     Managers.Input.MouseAction -= OnMouseEvent;
     Managers.Input.MouseAction += OnMouseEvent;
