@@ -9,6 +9,7 @@ public class PlayerStat : Stat
   [SerializeField]
   int _gold;
 
+   // test 
   public int Exp
   {
     get { return _exp; }
