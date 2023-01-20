@@ -19,7 +19,6 @@ namespace Data
   public class StatData : ILoader<int, Stat>
   {
     public List<Stat> stats = new List<Stat>();
-
     public Dictionary<int, Stat> MakeDict()
     {
       Dictionary<int, Stat> dict = new Dictionary<int, Stat>();
