@@ -6,7 +6,7 @@ using UnityEngine;
 public class Util
 {
   public static T GetOrAddComponet<T>(GameObject go) where T : UnityEngine.Component
-  {
+  {// obj에 컴포넌트 없으면 붙이고 컴포넌트 반환하기
     T component = go.GetComponent<T>();
     if (component == null)
       component = go.AddComponent<T>();
