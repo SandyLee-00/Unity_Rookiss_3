@@ -9,7 +9,7 @@ public class PlayerStat : Stat
   [SerializeField]
   int _gold;
 
-   // test 
+  // test 
   public int Exp
   {
     get { return _exp; }
@@ -56,6 +56,6 @@ public class PlayerStat : Stat
   }
   protected override void OnDead(Stat attacker)
   {
-
+    Start();
   }
 }

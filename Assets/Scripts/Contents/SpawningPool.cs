@@ -11,7 +11,7 @@ public class SpawningPool : MonoBehaviour
   [SerializeField]
   int _keepMonsterCount = 0;
   [SerializeField]
-  Vector3 _spawnPos;
+  Vector3 _spawnPos = new Vector3(0, 0, -38);
   [SerializeField]
   float _spawnRadius = 15.0f;
   [SerializeField]
