@@ -5,11 +5,11 @@ using UnityEngine;
 public class PoolManager
 {
   #region Pool
-  class Pool
+  public class Pool
   {
     public GameObject Origianl { get; private set; }
     public Transform Root { get; set; }
-    private Stack<Poolable> _poolStack = new Stack<Poolable>();
+    public Stack<Poolable> _poolStack = new Stack<Poolable>();
 
     public void Init(GameObject orginal, int count = 5)
     {

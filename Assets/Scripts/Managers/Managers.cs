@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-  static Managers s_instance;
-  static Managers Instance { get { Init(); return s_instance; } }
+  public static Managers s_instance;
+  public static Managers Instance { get { Init(); return s_instance; } }
 
   #region Contents
   GameManagerEx _game = new GameManagerEx();

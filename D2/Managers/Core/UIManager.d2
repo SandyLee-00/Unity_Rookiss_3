@@ -1,6 +1,16 @@
-className: {
+UIManager: {
   shape: class
-  변수
-
-  함수()
+  _order: int
+  _popupStack: Stack<UI_Popup>
+  _sceneUI: UI_Scene
+  Root: GameObject
+  SetCanvas(GameObject go, bool sort = true)
+  MakeWorldSpaceUI(Transform parent = null, string name = null): T
+  MakeSubItem(Transform parent = null, string name = null): T
+  ShowSceneUI(string name = null): T
+  ShowPopupUI(string name = null): T
+  ClosePopupUI(UI_Popup popup)
+  ClosePopupUI()
+  CloseAllPopupUI()
+  Clear()
 }

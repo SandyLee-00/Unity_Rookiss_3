@@ -1,6 +1,11 @@
-className: {
+SoundManager: {
   shape: class
-  변수
+  _audioSources: "AudioSource[]"
+  _audioClips: Dictionary<string, AudioClip>
 
-  함수()
+  Init()
+  Clear()
+  Play(string path, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f)
+  Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f)
+  GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect): AudioClip
 }

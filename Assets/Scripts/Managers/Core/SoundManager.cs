@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SoundManager
 {
-  AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
-  Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+  public AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
+  public Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
 
   public void Init()
   {
@@ -65,7 +65,7 @@ public class SoundManager
     }
   }
 
-  AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
+  public AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
   {
     if (path.Contains("Sounds/") == false)
       path = $"Sounds/{path}";

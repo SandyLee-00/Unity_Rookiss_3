@@ -9,8 +9,8 @@ public class InputManager
   public Action KeyAction = null;
   public Action<Define.MouseEvent> MouseAction = null;
 
-  bool _pressed = false;
-  float _pressedTime = 0;
+  public bool _pressed = false;
+  public float _pressedTime = 0;
 
   public void OnUpdate()
   {
