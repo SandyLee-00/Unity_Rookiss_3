@@ -1,0 +1,10 @@
+InputManager: {
+  shape: class
+  KeyAction: Action
+  MouseAction: Action<Define.MouseEvent>
+  -_pressed: bool
+  -_pressedTime: float
+
+  OnUpdate()
+  Clear()
+}

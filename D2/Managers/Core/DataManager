@@ -1,0 +1,10 @@
+DataManager:
+{
+shape: class
+StatDict : Dictionary<int, Data.Stat>
+
+
+Init()
+
+LoadJson(string): Loader
+}
