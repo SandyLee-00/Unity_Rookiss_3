@@ -20,6 +20,7 @@ public class PlayerController : BaseController
     if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
       Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
   }
+
   protected override void UpdateMoving()
   {
     // 몬스터가 내 사정거리보다 가까우면 공격
