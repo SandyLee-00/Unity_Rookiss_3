@@ -1,25 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+className: {
+  shape: class
+  변수
 
-public static class Extension
-{
-  public static T GetOrAddComponent<T>(this GameObject go) where T : UnityEngine.Component
-  {
-    return Util.GetOrAddComponet<T>(go);
-  }
-
-  public static void BindEvent(this GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
-  {
-    UI_Base.BindEvent(go, action, type);
-  }
-
-  public static bool IsValid(this GameObject go)
-// 널체크 & active 상태인지 체크하기
-  {
-    return go != null && go.activeSelf;
-  }
-
+  함수()
 }

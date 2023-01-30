@@ -1,28 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+className: {
+  shape: class
+  변수
 
-public class LoginScene : BaseScene
-{
-  protected override void Init()
-  {
-    base.Init();
-
-    SceneType = Define.Scene.Login;
-
-  }
-
-  private void Update()
-  {
-    if (Input.GetKeyDown(KeyCode.Q))
-    {
-      Managers.Scene.LoadScene(Define.Scene.Game);
-    }
-  }
-
-  public override void Clear()
-  {
-
-  }
+  함수()
 }
