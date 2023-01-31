@@ -1,6 +1,11 @@
-className: {
+GameManagerEx: {
   shape: class
-  변수
+  -_player: GameObject
+  -_monsters: HashSet<GameObject>
+  OnSpawnEvent: Action<int>
+  GetPlayer(): GameObject
 
-  함수()
+  Spawn(Define.WorldObject type, string path, Transform parent = null): GameObject
+  GetWorldObjectType(GameObject go): Define.WorldObject
+  Despawn(GameObject go)
 }
