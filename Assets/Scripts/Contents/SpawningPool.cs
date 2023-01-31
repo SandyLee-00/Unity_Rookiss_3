@@ -6,27 +6,27 @@ using UnityEngine.AI;
 public class SpawningPool : MonoBehaviour
 {
   [SerializeField]
-  int _monsterCount = 0;
+  private int _monsterCount = 0;
   [SerializeField]
-  int _reserveCount = 0;
+  private int _reserveCount = 0;
   [SerializeField]
-  int _keepMonsterCount = 0;
+  private int _keepMonsterCount = 0;
   [SerializeField]
-  Vector3 _spawnPos = new Vector3(0, 0, -38);
+  private Vector3 _spawnPos = new Vector3(0, 0, -38);
   [SerializeField]
-  float _spawnRadius = 15.0f;
+  private float _spawnRadius = 15.0f;
   [SerializeField]
-  float _spawnTime = 5.0f;
+  private float _spawnTime = 5.0f;
 
   public void AddMonsterCount(int value) { _monsterCount += value; }
   public void SetKeepMonsterCount(int count) { _keepMonsterCount = count; }
-  void Start()
+  private void Start()
   {
     Managers.Game.OnSpawnEvent -= AddMonsterCount;
     Managers.Game.OnSpawnEvent += AddMonsterCount;
   }
 
-  void Update()
+  private void Update()
   {
     while (_reserveCount + _monsterCount < _keepMonsterCount)
     {
@@ -34,7 +34,7 @@ public class SpawningPool : MonoBehaviour
     }
   }
 
-  IEnumerator ReserveSpawn()
+  public IEnumerator ReserveSpawn()
   {
     _reserveCount++;
     yield return new WaitForSeconds(Random.Range(0, _spawnTime));
