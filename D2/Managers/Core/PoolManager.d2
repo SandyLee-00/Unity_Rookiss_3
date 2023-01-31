@@ -2,10 +2,23 @@ Pool: {
   shape: class
   Origianl: GameObject
   Root: Transform
-  _poolStack: Stack<Poolable>
+  -_poolStack: Stack<Poolable>
 
   Init(GameObject orginal, int count = 5)
   Create(): Poolable
   Push(Poolable poolable)
   Pop(Transform parent): Poolable
+}
+
+PoolManager: {
+  shape: class
+  -_pool: Dictionary<string, Pool>
+  -_root: Transform
+
+  Init()
+  CreatePool(GameObject orginal, int count = 5)
+  Push(Poolable poolable)
+  Pop(GameObject original, Transform parent = null): Poolable
+  GetOriginal(string name): GameObject
+  Clear()
 }
