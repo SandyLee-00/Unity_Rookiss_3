@@ -17,7 +17,7 @@ public class UI_Button : UI_Popup
     ScoreText,
   }
 
-  enum GameObjects
+  public enum GameObjects
   {
     TestObject,
   }
