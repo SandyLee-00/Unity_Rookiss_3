@@ -1,6 +1,14 @@
-className: {
+SpawningPool: {
   shape: class
-  변수
-
-  함수()
+  -_monsterCount: int
+  -_reserveCount: int
+  -_keepMonsterCount: int
+  -_spawnPos: Vector3
+  -_spawnRadius: float
+  -_spawnTime: float
+  AddMonsterCount(int value)
+  SetKeepMonsterCount(int count)
+  -Start()
+  -Update()
+  ReserveSpawn(): IEnumerator
 }

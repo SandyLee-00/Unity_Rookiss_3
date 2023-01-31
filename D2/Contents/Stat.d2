@@ -1,6 +1,20 @@
-className: {
+Stat: {
   shape: class
-  변수
+  \#_level: int
+  \#_hp: int
+  \#_maxHp: int
+  \#_attack: int
+  \#_defense: int
+  \#_moveSpeed: int
 
-  함수()
+  Level: int
+  HP: int
+  MaxHp: int
+  Attack: int
+  Defense: int
+  MoveSpeed: int
+
+  -Start()
+  OnAttacked(Stat attacker)
+  \#OnDead(Stat attacker)
 }
