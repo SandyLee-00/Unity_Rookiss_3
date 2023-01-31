@@ -1,6 +1,14 @@
-className: {
+PlayerController: {
   shape: class
-  변수
+  -_mask: int
+  -_stat: PlayerStat
+  -_stopSkill: bool
 
-  함수()
+  Init()
+  \#UpdateMoving()
+  \#UpdateSkill()
+  \#OnHitEvent()
+
+  -OnMouseEvent(Define.MouseEvent evt)
+  -OnMouseEvent_IdleRun(Define.MouseEvent evt)
 }

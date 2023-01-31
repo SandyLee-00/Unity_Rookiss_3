@@ -1,6 +1,13 @@
-className: {
+Stat: {
   shape: class
-  변수
+  level: int
+  maxhp: int
+  attack: int
+  totalExp: int
+}
 
-  함수()
+StatData: {
+  shape: class
+  stats: List<Stat>
+  MakeDict(): Dictionary<int, Stat>
 }
