@@ -9,7 +9,7 @@ public class UI_HPBar : UI_Base
   {
     HPBar
   }
-  Stat _stat;
+  private Stat _stat;
   public override void Init()
   {
     Bind<GameObject>(typeof(GameObjects));

@@ -1,6 +1,16 @@
-className: {
+UI_Base: {
   shape: class
-  변수
+  \#_objects: "Dictionary<Type, UnityEngine.Object[]>"
+  Init()
+  -Start()
 
-  함수()
+  \#Bind(Type type)
+  \#Get(int idx)
+
+  \#GetObject(int idx): GameObject
+  \#GetText(int idx): Text
+  \#GetButton(int idx): Button
+  \#GetImage(int idx): Image
+
+  BindEvent()
 }

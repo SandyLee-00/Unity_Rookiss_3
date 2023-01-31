@@ -1,6 +1,10 @@
-className: {
+UI_EventHandler: {
   shape: class
-  변수
+  OnBeginDragHandler: Action<PointerEventData>
+  OnDragHandler: Action<PointerEventData>
+  OnClickHandler: Action<PointerEventData>
 
-  함수()
+  OnBeginDrag(PointerEventData eventData)
+  OnDrag(PointerEventData eventData)
+  OnPointerClick(PointerEventData eventData)
 }
