@@ -1,6 +1,17 @@
-className: {
+BaseController: {
   shape: class
-  변수
+  \#_destPos: Vector3
+  \#_state: Define.State
+  \#_lockTarget: GameObject
+  WorldObjectType: Define.WorldObject
+  State: Define.State
 
-  함수()
+  \#Start()
+  \#Update()
+  Init()
+  \#UpdateDie()
+  \#UpdateMoving()
+  \#UpdateIdle()
+  \#UpdateSkill()
+  \#OnHitEvent()
 }

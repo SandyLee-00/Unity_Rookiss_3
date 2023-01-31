@@ -1,6 +1,10 @@
-className: {
+CameraController: {
   shape: class
-  변수
+  -_mode: Define.CameraMode
+  -_delta: Vector3
+  -_player: GameObject
 
-  함수()
+  SetPlayer(GameObject player)
+  -LateUpdate()
+  SetQuarterView(Vector3 delta)
 }
