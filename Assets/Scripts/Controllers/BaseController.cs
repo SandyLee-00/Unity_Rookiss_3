@@ -40,11 +40,11 @@ public abstract class BaseController : MonoBehaviour
     }
   }
 
-  private void Start()
+  protected void Start()
   {
     Init();
   }
-  void Update()
+  protected void Update()
   {
     switch (State)
     {
@@ -67,6 +67,5 @@ public abstract class BaseController : MonoBehaviour
   protected virtual void UpdateMoving() { }
   protected virtual void UpdateIdle() { }
   protected virtual void UpdateSkill() { }
-
-  void OnHitEvent() { }
+  protected virtual void OnHitEvent() { }
 }

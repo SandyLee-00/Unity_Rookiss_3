@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UI_Inven : UI_Scene
 {
-  enum GameObjects
+  public enum GameObjects
   {
     GridPanel,
   }

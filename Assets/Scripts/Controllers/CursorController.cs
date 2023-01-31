@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
-  Texture2D _attackIcon;
-  Texture2D _handIcon;
+  private Texture2D _attackIcon;
+  private Texture2D _handIcon;
 
-  enum CursorType
+  public enum CursorType
   {
     None,
     Attack,
     Hand,
   }
-  CursorType _cursorType = CursorType.None;
-  int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
+  private CursorType _cursorType = CursorType.None;
+  private int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
 
-  void Start()
+  private void Start()
   {
     _attackIcon = Managers.Resource.Load<Texture2D>("Textures/Cursor/Attack");
     _handIcon = Managers.Resource.Load<Texture2D>("Textures/Cursor/Hand");
   }
 
-  void Update()
+  private void Update()
   {
     if (Input.GetMouseButton(0)) return;
 

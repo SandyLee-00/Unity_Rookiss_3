@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerStat : Stat
 {
   [SerializeField]
-  int _exp;
+  private int _exp;
   [SerializeField]
-  int _gold;
+  private int _gold;
 
   // test 
   public int Exp
@@ -56,6 +56,6 @@ public class PlayerStat : Stat
   }
   protected override void OnDead(Stat attacker)
   {
-    Start();
+    
   }
 }

@@ -7,6 +7,7 @@ public class SpawningPool : MonoBehaviour
 {
   [SerializeField]
   int _monsterCount = 0;
+  [SerializeField]
   int _reserveCount = 0;
   [SerializeField]
   int _keepMonsterCount = 0;

@@ -5,9 +5,9 @@ using System;
 
 public class GameManagerEx
 {
-  GameObject _player;
+  private GameObject _player;
   //Dictionary<int, GameObject> _monsters = new Dictionary<int, GameObject>();
-  HashSet<GameObject> _monsters = new HashSet<GameObject>();
+  private HashSet<GameObject> _monsters = new HashSet<GameObject>();
 
   public Action<int> OnSpawnEvent;
   public GameObject GetPlayer() { return _player; }

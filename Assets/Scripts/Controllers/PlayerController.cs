@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class PlayerController : BaseController
 {
-  int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
+  private int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
 
-  PlayerStat _stat;
-  bool _stopSkill = false;
+  private PlayerStat _stat;
+  private bool _stopSkill = false;
 
   public override void Init()
   {
@@ -67,7 +67,7 @@ public class PlayerController : BaseController
     }
   }
 
-  void OnHitEvent()
+  protected override void OnHitEvent()
   {
     if (_lockTarget != null)
     {
@@ -83,7 +83,7 @@ public class PlayerController : BaseController
       State = Define.State.Skill;
     }
   }
-  void OnMouseEvent(Define.MouseEvent evt)
+  private void OnMouseEvent(Define.MouseEvent evt)
   {
     switch (State)
     {
@@ -101,7 +101,7 @@ public class PlayerController : BaseController
         break;
     }
   }
-  void OnMouseEvent_IdleRun(Define.MouseEvent evt)
+  private void OnMouseEvent_IdleRun(Define.MouseEvent evt)
   {
     RaycastHit hit;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

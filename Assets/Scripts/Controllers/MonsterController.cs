@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class MonsterController : BaseController
 {
-  Stat _stat;
+  private Stat _stat;
   [SerializeField]
-  float _scanRange = 10;
+  private float _scanRange = 10;
 
   [SerializeField]
-  float _attackRange = 2;
+  private float _attackRange = 2;
   public override void Init()
   {
     WorldObjectType = Define.WorldObject.Monster;
@@ -72,7 +72,7 @@ public class MonsterController : BaseController
       transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
     }
   }
-  void OnHitEvent()
+  protected override void OnHitEvent()
   {
     if (_lockTarget != null)
     {

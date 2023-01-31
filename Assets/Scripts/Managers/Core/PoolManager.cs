@@ -9,7 +9,7 @@ public class PoolManager
   {
     public GameObject Origianl { get; private set; }
     public Transform Root { get; set; }
-    public Stack<Poolable> _poolStack = new Stack<Poolable>();
+    private Stack<Poolable> _poolStack = new Stack<Poolable>();
 
     public void Init(GameObject orginal, int count = 5)
     {
@@ -20,7 +20,7 @@ public class PoolManager
       for (int i = 0; i < count; i++)
         Push(Create());
     }
-    Poolable Create()
+    public Poolable Create()
     {
       GameObject go = Object.Instantiate<GameObject>(Origianl);
       go.name = Origianl.name;
@@ -57,8 +57,8 @@ public class PoolManager
     }
   }
   #endregion
-  Dictionary<string, Pool> _pool = new Dictionary<string, Pool>();
-  Transform _root;
+  private Dictionary<string, Pool> _pool = new Dictionary<string, Pool>();
+  private Transform _root;
   public void Init()
   {
     if (_root == null)

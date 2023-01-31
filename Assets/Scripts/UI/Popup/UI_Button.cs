@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class UI_Button : UI_Popup
 {
-  enum Buttons
+  public enum Buttons
   {
     PointButton,
   }
 
-  enum Texts
+  public enum Texts
   {
     PointText,
     ScoreText,
@@ -22,7 +22,7 @@ public class UI_Button : UI_Popup
     TestObject,
   }
 
-  enum Images
+  public enum Images
   {
     ItemIcon,
   }
@@ -42,7 +42,7 @@ public class UI_Button : UI_Popup
 
   }
 
-  int _score = 0;
+  private int _score = 0;
   public void OnButtonClicked(PointerEventData data)
   {
     _score++;
