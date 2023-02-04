@@ -6,6 +6,7 @@ public class PlayerStat : Stat
 {
   [SerializeField]
   private int _exp;
+  private int _maxExp;
   [SerializeField]
   private int _gold;
 
@@ -34,6 +35,8 @@ public class PlayerStat : Stat
     }
   }
   public int Gold { get { return _gold; } set { _gold = value; } }
+  public int MaxExp{ get { return _maxExp; } }
+
 
   private void Start()
   {
@@ -53,6 +56,7 @@ public class PlayerStat : Stat
     _hp = stat.maxhp;
     _maxHp = stat.maxhp;
     _attack = stat.attack;
+    _maxExp = stat.totalExp;
   }
   protected override void OnDead(Stat attacker)
   {
