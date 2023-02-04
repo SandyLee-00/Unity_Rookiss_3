@@ -5,24 +5,28 @@ using UnityEngine.AI;
 
 public class MonsterController : BaseController
 {
-  private Stat _stat;
-  [SerializeField]
-  private float _scanRange = 10;
+  Stat _stat;
 
   [SerializeField]
-  private float _attackRange = 2;
+  float _scanRange = 10;
+
+  [SerializeField]
+  float _attackRange = 2;
+
   public override void Init()
   {
     WorldObjectType = Define.WorldObject.Monster;
     _stat = gameObject.GetComponent<Stat>();
+
     if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
       Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
-
   }
+
   protected override void UpdateIdle()
   {
     GameObject player = Managers.Game.GetPlayer();
-    if (player == null) return;
+    if (player == null)
+      return;
 
     float distance = (player.transform.position - transform.position).magnitude;
     if (distance <= _scanRange)
@@ -32,9 +36,10 @@ public class MonsterController : BaseController
       return;
     }
   }
+
   protected override void UpdateMoving()
   {
-    // 플레이어 내 사정거리보다 가까우면 공격
+    // 플레이어가 내 사정거리보다 가까우면 공격
     if (_lockTarget != null)
     {
       _destPos = _lockTarget.transform.position;
@@ -63,6 +68,7 @@ public class MonsterController : BaseController
       transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
     }
   }
+
   protected override void UpdateSkill()
   {
     if (_lockTarget != null)
@@ -72,23 +78,26 @@ public class MonsterController : BaseController
       transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
     }
   }
-  protected override void OnHitEvent()
+
+  void OnHitEvent()
   {
     if (_lockTarget != null)
     {
+      // 체력
       Stat targetStat = _lockTarget.GetComponent<Stat>();
       targetStat.OnAttacked(_stat);
 
-      if (targetStat.HP > 0)
+      if (targetStat.Hp > 0)
       {
         float distance = (_lockTarget.transform.position - transform.position).magnitude;
-        if (distance <= _attackRange) State = Define.State.Skill;
-        else State = Define.State.Idle;
-
+        if (distance <= _attackRange)
+          State = Define.State.Skill;
+        else
+          State = Define.State.Moving;
       }
-      else if (targetStat.HP <= 0)
+      else
       {
-        Managers.Game.Despawn(targetStat.gameObject);
+        State = Define.State.Idle;
       }
     }
     else

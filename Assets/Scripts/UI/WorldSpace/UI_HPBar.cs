@@ -9,7 +9,9 @@ public class UI_HPBar : UI_Base
   {
     HPBar
   }
-  private Stat _stat;
+
+  Stat _stat;
+
   public override void Init()
   {
     Bind<GameObject>(typeof(GameObjects));
@@ -22,7 +24,7 @@ public class UI_HPBar : UI_Base
     transform.position = parent.position + Vector3.up * (parent.GetComponent<Collider>().bounds.size.y);
     transform.rotation = Camera.main.transform.rotation;
 
-    float ratio = _stat.HP / (float)_stat.MaxHp;
+    float ratio = _stat.Hp / (float)_stat.MaxHp;
     SetHpRatio(ratio);
   }
 

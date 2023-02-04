@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
 
+*/
 public class Stat : MonoBehaviour
 {
   [SerializeField]
@@ -18,7 +20,7 @@ public class Stat : MonoBehaviour
   protected float _moveSpeed;
 
   public int Level { get { return _level; } set { _level = value; } }
-  public int HP { get { return _hp; } set { _hp = value; } }
+  public int Hp { get { return _hp; } set { _hp = value; } }
   public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
   public int Attack { get { return _attack; } set { _attack = value; } }
   public int Defense { get { return _defense; } set { _defense = value; } }
@@ -37,10 +39,12 @@ public class Stat : MonoBehaviour
   public virtual void OnAttacked(Stat attacker)
   {
     int damage = Mathf.Max(0, attacker.Attack - Defense);
-    HP -= damage;
-    if (HP <= 0)
-      HP = 0;
-    OnDead(attacker);
+    Hp -= damage;
+    if (Hp <= 0)
+    {
+      Hp = 0;
+      OnDead(attacker);
+    }
   }
 
   protected virtual void OnDead(Stat attacker)
@@ -48,8 +52,9 @@ public class Stat : MonoBehaviour
     PlayerStat playerStat = attacker as PlayerStat;
     if (playerStat != null)
     {
-      playerStat.Exp += 1;
+      playerStat.Exp += 15;
     }
+
     Managers.Game.Despawn(gameObject);
   }
 }

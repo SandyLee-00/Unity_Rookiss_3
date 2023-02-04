@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class PlayerController : BaseController
 {
-  private int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
+  int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
 
-  private PlayerStat _stat;
-  private bool _stopSkill = false;
+  PlayerStat _stat;
+  bool _stopSkill = false;
 
   public override void Init()
   {
@@ -38,6 +38,7 @@ public class PlayerController : BaseController
     // 이동
     Vector3 dir = _destPos - transform.position;
     dir.y = 0;
+
     if (dir.magnitude < 0.1f)
     {
       State = Define.State.Idle;
@@ -51,6 +52,7 @@ public class PlayerController : BaseController
           State = Define.State.Idle;
         return;
       }
+
       float moveDist = Mathf.Clamp(_stat.MoveSpeed * Time.deltaTime, 0, dir.magnitude);
       transform.position += dir.normalized * moveDist;
       transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
@@ -67,13 +69,14 @@ public class PlayerController : BaseController
     }
   }
 
-  protected override void OnHitEvent()
+  void OnHitEvent()
   {
     if (_lockTarget != null)
     {
       Stat targetStat = _lockTarget.GetComponent<Stat>();
       targetStat.OnAttacked(_stat);
     }
+
     if (_stopSkill)
     {
       State = Define.State.Idle;
@@ -83,7 +86,8 @@ public class PlayerController : BaseController
       State = Define.State.Skill;
     }
   }
-  private void OnMouseEvent(Define.MouseEvent evt)
+
+  void OnMouseEvent(Define.MouseEvent evt)
   {
     switch (State)
     {
@@ -101,11 +105,13 @@ public class PlayerController : BaseController
         break;
     }
   }
-  private void OnMouseEvent_IdleRun(Define.MouseEvent evt)
+
+  void OnMouseEvent_IdleRun(Define.MouseEvent evt)
   {
     RaycastHit hit;
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
+    //Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
 
     switch (evt)
     {
