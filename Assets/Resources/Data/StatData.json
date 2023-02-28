@@ -10,13 +10,13 @@
       "level": "2",
       "maxhp": "250",
       "attack": "25",
-      "totalExp" : "10"
+      "totalExp" : "100"
     },
     {
       "level": "3",
       "maxhp": "300",
       "attack": "30",
-      "totalExp": "20"
+      "totalExp": "200"
     }
   ]
 }
