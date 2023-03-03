@@ -52,7 +52,7 @@ public class Stat : MonoBehaviour
     PlayerStat playerStat = attacker as PlayerStat;
     if (playerStat != null)
     {
-      playerStat.Exp += 5;
+      playerStat.Exp += 20;
     }
 
     Managers.Game.Despawn(gameObject);

@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerStat : Stat
 {
-  [SerializeField]
   private int _exp;
-  private int _maxExp;
   [SerializeField]
   private int _gold;
 

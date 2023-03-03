@@ -3,20 +3,32 @@
     {
       "level" : "1",
       "maxhp" : "200",
-      "attack" : "20",
+      "attack" : "21",
       "totalExp" : "0"
     },
     {
       "level": "2",
-      "maxhp": "250",
-      "attack": "25",
-      "totalExp" : "100"
+      "maxhp": "205",
+      "attack": "22",
+      "totalExp" : "30"
     },
     {
-      "level": "3",
-      "maxhp": "300",
-      "attack": "30",
-      "totalExp": "200"
+        "level": "3",
+        "maxhp": "210",
+        "attack": "23",
+        "totalExp": "72"
+    },
+    {
+        "level": "4",
+        "maxhp": "215",
+        "attack": "24",
+        "totalExp": "128"
+    },
+    {
+        "level": "5",
+        "maxhp": "220",
+        "attack": "25",
+        "totalExp": "200"
     }
   ]
 }
