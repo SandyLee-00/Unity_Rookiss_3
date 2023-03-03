@@ -30,9 +30,10 @@ public class UI_Stat : UI_Scene
     {
         float HPRatio = _stat.Hp / (float)_stat.MaxHp;
         GetObject((int)GameObjects.UI_Stat_HP_Bar).GetComponent<Slider>().value = HPRatio;
-        float ExpRatio = _stat.Exp / (float)_stat.NextMaxExp - (float)_stat.MaxExp ;
+        float ExpRatio = (_stat.Exp - (float)_stat.MaxExp) / ((float)_stat.NextMaxExp - (float)_stat.MaxExp) ;
         GetObject((int)GameObjects.UI_Stat_EXP_Bar).GetComponent<Slider>().value = ExpRatio;
-        Debug.Log($"{_stat.Exp} {_stat.MaxExp}");
+        Debug.Log($"{(_stat.Exp - (float)_stat.MaxExp)} {((float)_stat.NextMaxExp - (float)_stat.MaxExp)}");
+        GetText((int)Texts.UI_Stat_Level_Text).GetComponent<Text>().text = $"LV {_stat.Level}";
     }
 
 
