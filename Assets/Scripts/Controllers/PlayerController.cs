@@ -17,8 +17,8 @@ public class PlayerController : BaseController
     Managers.Input.MouseAction -= OnMouseEvent;
     Managers.Input.MouseAction += OnMouseEvent;
 
-    if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
-      Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
+    //if (gameObject.GetComponentInChildren<UI_HPBar>() == null)
+    //  Managers.UI.MakeWorldSpaceUI<UI_HPBar>(transform);
   }
 
   protected override void UpdateMoving()
